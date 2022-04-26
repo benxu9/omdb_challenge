@@ -1,38 +1,184 @@
-.App {
+
+nav {
+  display: flex;
+  background-color: grey;
+  position:sticky;
+  top: 0;
+}
+
+.searchbar {
+  display: inline;
+  height:10vh;
+  padding-top:10px;
+}
+input {
+  background-color: grey;
+  border: none;
+  outline: none;
+  top:50%;
+  color:ghostwhite;
+  font-size: xxx-large;
+
+}
+
+#leftentries {
+  padding-left:50px;
+}
+
+.leftside {
+  width: 30%;
+  height:100vh;
+  overflow-y: scroll;
+  border-right-color:rgb(180, 178, 178);
+  border-right-style:solid;
+}
+.rightside {
+  width:70%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+}
+.titletop {
+  padding-left: 8%;
+  padding-top: 8%;
+  display: flex;
+  width:100%;
+}
+
+.lightgrey {
+  color:rgb(180, 178, 178);
+}
+.m-list {
+  padding: 50px;
+  display: flex;
+}
+
+.m-list:hover {
+  background-color:#ccc;
+  cursor:pointer;
+}
+.m-list:active {
+  background-color: #ccc;
+}
+.movieList {
+  flex: 1;
+}
+.thumbnail {
+  width: 100px;
+  height: 100px;
+}
+.poster {
+  height: 300px;
+}
+
+li {
+  list-style-type: none;
+}
+
+#info {
+  padding-left: 40px;
+  vertical-align: middle;
+}
+
+#infotitle {
+  top: 40%;
+  left: 20%;
+  position:relative;
+}
+
+.rating {
+  position:relative;
+  top: 43%;
+  left: 20%;
+}
+
+#rated {
+  border-style:solid;
+  border-color:grey;
+  border-radius: 2px;
+}
+
+
+#actors {
+  position:relative;
+  top:45%;
+  left:20%;
+}
+
+#summary {
+  border-top-style: solid;
+  border-color:rgb(96, 95, 95);
+  display:block;
+  margin-top:20px;
+  margin-left:8%;
+}
+#ratingval {
+  border-top-style: solid;
+  border-color:rgb(180, 178, 178);
+  display:block;
+  margin-top:20px;
+  margin-left:8%;
+}
+
+.row1::after{
+  display:table;
+  content:"";
+  clear:both;
+}
+
+.columnrating0 {
+  float:left;
+  width: 33.33%;
+  border-right-style: solid;
+  border-right-color:rgb(180, 178, 178);
+  margin-top: 20px;
+  text-align: center;
+}
+.columnrating1 {
+  float:left;
+  width: 33.33%;
+  border-right-style: solid;
+  border-right-color:rgb(180, 178, 178);
+  margin-top: 20px;
+  text-align: center;
+}
+.columnrating2 {
+  float:right;
+  width:33%;
+  margin-top: 20px;
+  text-align: center;
+}
+.ratingpos {
+
+}
+
+#title {
+  font-size: xxx-large;
+  font-weight: 600;
+  font-family: fangsong;
+  width: max-content;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#plotcentre {
+  margin-right:20%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#plotsummary {
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#searchicon {
+  font-size: xxx-large;
+}
+#yearslider {
+  font-size: x-large;
+  color: ghostwhite;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.css-187mznn-MuiSlider-root {
+  bottom: 2px;
 }

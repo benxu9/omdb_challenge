@@ -1,23 +1,50 @@
-import logo from './logo.svg';
+import { useState, useEffect} from 'react';
 import './App.css';
+import MovieList from './components/MovieList';
+import Searchbar from './components/Searchbar';
+import Rightside from './components/Rightside';
 
 function App() {
+
+  const [movies, setMovies] = useState([]);
+  const [entries, setEntries] = useState();
+  const [searchVal, setSearchval] = useState("");
+  const [currentview, setCurrentView] = useState();
+
+
+  const getMovieRequest = async (searchVal) => {
+    const url =  `http://www.omdbapi.com/?s=${searchVal}&apikey=fc42ed47`;
+
+    const response = await fetch(url);
+    const responsejson = await response.json();
+    
+    if (responsejson.Search) {
+      setMovies(responsejson.Search);
+      setEntries(responsejson.totalResults);
+      setCurrentView(responsejson.Search[0].imdbID);
+    }
+    
+  }
+  useEffect(() => {
+    getMovieRequest(searchVal);
+  }, [searchVal])
+
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Searchbar searchVal={searchVal} setSearchval={setSearchval}></Searchbar>
+      <div className="row">
+        <div className="leftside">
+          <p id="leftentries">{entries} RESULTS</p>
+          <MovieList movies={movies} setCurrentView={setCurrentView}/>
+        </div>
+        <div className="rightside">
+          {searchVal ? <Rightside data={currentview}/> : null}
+          
+        </div>
+      </div>
     </div>
   );
 }
